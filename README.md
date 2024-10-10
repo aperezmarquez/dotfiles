@@ -34,7 +34,7 @@
    - [Image](https://github.com/3rd/image.nvim) (loads images inside nvim)
    - [Quarto](https://github.com/quarto-dev/quarto-nvim) (Quarto manuscripts, easy to write code inside .ipynb and .qmd)
    - [Jupytext](https://github.com/GCBallesteros/jupytext.nvim) (converts .ipynb to .md and back to .ipynb when file exited)
-
+![ipynb inside nvim](./photos/ipynb_nvim.png)
 - [Kitty](https://sw.kovidgoyal.net/kitty/):
      Changes the size of the kitty window, makes it borderless, add's transparent background, changes tabbar to powerline style and change's the font to [Hack](https://github.com/source-foundry/Hack).
      Mappings for Kitty:
