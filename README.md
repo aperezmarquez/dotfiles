@@ -1,10 +1,11 @@
 # DOTFILES FOR [FEDORA v40](https://fedoraproject.org/es/)
 
+![Terminal Theme](./photos/terminal.png)
+![Nvim Theme](./photos/nvim.png)
+
 - **Config**
    - Nvim
    - Kitty
-   - Atuin
-   - Btop
 - **Zshrc**
    - p10k
    - oh-my-zsh
@@ -44,10 +45,6 @@
         - Ctrl + up (change to the upward window)
         - Ctrl + down (change to the downward window)
 
-- [Atuin](https://github.com/atuinsh/atuin):
-     Uses the default config for Atuin, a plugin for zsh that saves the command history and lets you scroll through it
-- [Btop](https://github.com/aristocratos/btop)
-
 
 # ZSHRC
 
@@ -55,10 +52,4 @@
    Terminal looks + icons
   
 - [oh-my-zsh](https://ohmyz.sh/):
-   A zsh framework, this lets you configure your terminal just by using an option selection menu that shows ups when installed, this will add a couple of lines inside the .zshrc file
-
-
-# BASHRC
-
-- [Conda](https://anaconda.org/anaconda/conda):
-   Initialize function for conda init
+   A zsh framework, this lets you configure your terminal just by using an option selection menu that shows ups when installed, this will add a couple of lines inside the .zshrc file.
