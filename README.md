@@ -28,6 +28,7 @@
    - [Lsp](https://github.com/neovim/nvim-lspconfig) (connecting to various language servers)
    - [Cmp](https://github.com/hrsh7th/nvim-cmp) (for codeium completions)
    - [Lualine](https://github.com/nvim-lualine/lualine.nvim) (status bar looks)
+   - [Precognition](https://github.com/tris203/precognition.nvim) (adds comments for fast moving in nvim)
    - [Molten](https://github.com/benlubas/molten-nvim) (runs code in jupyter kernel)
    - [Image](https://github.com/3rd/image.nvim) (loads images inside nvim)
    - [Quarto](https://github.com/quarto-dev/quarto-nvim) (Quarto manuscripts, easy to write code inside .ipynb and .qmd)
