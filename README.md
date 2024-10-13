@@ -3,17 +3,6 @@
 ![Terminal Theme](./photos/terminal.png)
 ![Nvim Theme](./photos/nvim.png)
 
-- **SetUp**
-   - Stow
-- **Config**
-   - Nvim
-   - Kitty
-- **Zshrc**
-   - p10k
-   - oh-my-zsh
-- **Bashrc**
-   - Conda
-
 
 
 # SETUP
