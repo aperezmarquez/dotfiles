@@ -21,7 +21,7 @@
 If you want to use this dotfiles, you can do the following:
 1. Install [Stow](https://www.gnu.org/software/stow/) (Stow is an easy way to manage dotfiles)
 2. Create a symlink for every file with the following command:
-    2.1. stow <file_name> (for example "stow nvim")
+    stow <file_name> (for example "stow nvim")
 3. Check for the symlink in the home folder or in the .config folder
 
 
