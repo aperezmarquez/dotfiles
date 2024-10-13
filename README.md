@@ -3,6 +3,8 @@
 ![Terminal Theme](./photos/terminal.png)
 ![Nvim Theme](./photos/nvim.png)
 
+- **SetUp**
+   - Stow
 - **Config**
    - Nvim
    - Kitty
@@ -11,6 +13,16 @@
    - oh-my-zsh
 - **Bashrc**
    - Conda
+
+
+
+# SETUP
+
+If you want to use this dotfiles, you can do the following:
+1. Install [Stow](https://www.gnu.org/software/stow/) (Stow is an easy way to manage dotfiles)
+2. Create a symlink for every file with the following command:
+    2.1. stow <file_name> (for example "stow nvim")
+3. Check for the symlink in the home folder or in the .config folder
 
 
 
@@ -47,6 +59,7 @@
         - Ctrl + right (change to the right window)
         - Ctrl + up (change to the upward window)
         - Ctrl + down (change to the downward window)
+
 
 
 # ZSHRC
