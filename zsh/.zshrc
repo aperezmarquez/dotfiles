@@ -116,3 +116,15 @@ source $ZSH/oh-my-zsh.sh
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 eval "$(atuin init zsh)"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+alias ll='ls -latr'
+cdr() {
+    cd /run/media/antonio/"$1"
+}
+
+export PATH=$PATH:$HOME/Escritorio/Asignaturas/Año4/2º/Verificacion-software/SonrQube/sonar-scanner-7.0.2.4839-linux-x64/bin
+

@@ -17,6 +17,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 ft = {"quarto", "markdown"}
+vim.g.codeium_enabled = false
 
 require("lazy").setup("plugins")
 require("vim-option")
