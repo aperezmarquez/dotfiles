@@ -1,0 +1,61 @@
+/* eww.scss - Estilos para el selector de fondos */
+
+* {
+  all: unset;
+  font-family: "JetBrains Mono", monospace;
+}
+
+.wallpaper-container {
+  background: linear-gradient(to bottom, 
+      rgba(141, 104, 210, 0.8), 
+      rgba(141, 104, 210, 0.3)
+  );
+  border-top: 4px solid rgba(210, 167, 221, 0.9);
+  padding: 10px;
+}
+
+.header {
+  margin-bottom: 10px;
+  padding-bottom: 5px;
+  //border-bottom: 2px solid rgba(179, 240, 255, 1);
+}
+
+.title {
+  margin: 15px 0 0 15px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #b3f0ff;
+}
+
+.wallpaper-scroll {
+  min-height: 200px;
+}
+
+.wallpaper-grid {
+  padding: 10px;
+}
+
+.wallpaper-item {
+  background-color: rgba(80, 156, 175, 0.6);
+  padding: 10px;
+  margin: 5px 0;
+  transition: all 0.3s;
+  border-left: 4px solid rgba(179, 240, 255, 0.9);
+  
+  &:hover {
+    background-color: rgba(49, 50, 68, 0.9);
+    border-color: rgba(137, 180, 250, 0.8);
+    box-shadow: 0 4px 12px rgba(137, 180, 250, 0.3);
+  }
+}
+
+.wallpaper-preview {
+  background-size: cover;
+  background-position: center;
+}
+
+.wallpaper-name {
+  color: rgb(179, 240, 255);
+  font-size: 14px;
+  padding: 5px;
+}

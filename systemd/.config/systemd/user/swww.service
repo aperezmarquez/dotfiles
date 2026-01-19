@@ -1,0 +1,16 @@
+[Unit]
+Description="Sets the swww wallpaper when boot"
+After="graphical-session.target"
+Wants="graphical-session.target"
+
+[Service]
+Type=simple
+ExecStart=/bin/sh -c "sleep 1 && $HOME/.local/bin/swww-wallpaper.sh"
+Restart="on-failure"
+
+Environment=WAYLAND_DISPLAY=wayland-1
+Environment=XDG_RUNTIME_DIR=/run/user/%U
+Environment=PATH=/run/current-system/sw/bin
+
+[Install]
+WantedBy=default.target

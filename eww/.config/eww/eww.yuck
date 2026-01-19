@@ -1,0 +1,56 @@
+;; eww.yuck - Conf selector de fondos
+
+;; Variables
+(defpoll wallpapers :interval "24h" :initial "[]"
+    "~/.config/eww/scripts/list_wallpapers.sh")
+
+;; Ventana principal
+(defwindow wallpaper-selector
+    :class "wallpaper-outer"
+    :monitor 0
+    :geometry (geometry :x "25%"
+                        :y "30%"
+			:width "50%"
+			:height "40%")
+    :stacking "overlay"
+    :exclusive false
+    :focusable false
+    (wallpaper-box))
+
+;; Contenedor principal
+(defwidget wallpaper-box []
+    (box :class "wallpaper-container"
+         :orientation "v"
+	 :space-evenly false
+        (box :class "header"
+	     :orientation "h"
+	     :space-evenly false
+	    (label :class "title"
+	           :text "Wallpapers"
+		   :halign "start"
+		   :hexpand true))
+	(scroll :vscroll false
+	        :hscroll true
+		:class "wallpaper-scroll"
+	    (box :class "wallpaper-grid"
+	             :spacing 10
+		     :orientation "h"
+		     :space-evenly false
+	        (for wall in wallpapers
+		    (wallpaper-item :name wall))))))
+
+;; Item individual
+(defwidget wallpaper-item [name]
+    (eventbox :onclick "bash -c 'swww img ~/Images/Wallpapers/${name} --transition-type fade --transition-duration 1 && eww close wallpaper-selector'"
+        (box :class "wallpaper-item"
+             :orientation "v"
+             :space-evenly false
+             :spacing 5
+            (image :class "wallpaper-preview"
+                   :path "/home/antonio/Images/Wallpapers/${name}"
+		   :image-width 400
+		   :image-height 150)
+            (label :class "wallpaper-name"
+                   :text name
+                   :limit-width 30
+                   :wrap false))))

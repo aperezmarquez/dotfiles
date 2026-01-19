@@ -1,0 +1,17 @@
+# THIS SEERVICE IS CREATED TO RUN VIDEO WALLPAPERS (VERY CPU CONSUMMING)
+[Unit]
+Description=mpvpaper video wallpaper
+After=graphical-session.target
+Wants=graphical-session.target
+
+[Service]
+ExecStart=/bin/sh -c "sleep 1 && $HOME/.local/bin/mpvpaper-wallpaper.sh"
+Restart=on-failure
+
+Environment=XDG_RUNTIME_DIR=/run/user/%U
+Environment=WAYLAND_DISPLAY=wayland-1
+Environment=PATH=/run/current-system/sw/bin
+
+[Install]
+WantedBy=default.target
+
