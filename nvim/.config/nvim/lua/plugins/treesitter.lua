@@ -1,8 +1,9 @@
 return {
     "nvim-treesitter/nvim-treesitter",
+    url = "https://github.com/nvim-treesitter/nvim-treesitter.git",
     build = ":TSUpdate",
     config = function () 
-      local configs = require("nvim-treesitter.configs")
+      local configs = require("nvim-treesitter.config")
 
       configs.setup({
           ensure_installed = { 
@@ -10,11 +11,14 @@ return {
               "cpp", 
               "css", 
               "lua", 
+              "bash",
               "vim", 
               "vimdoc", 
               "query", 
               "javascript", 
               "html", 
+              "css",
+              "typescript",
               "git_config", 
               "git_rebase", 
               "gitcommit", 
