@@ -3,9 +3,9 @@
 	email = aperezmarquez.business@gmail.com
 [credential "https://github.com"]
 	helper = 
-	helper = !/run/current-system/sw/bin/gh auth git-credential
+	helper = !/etc/profiles/per-user/antonio/bin/gh auth git-credential
 [credential "https://gist.github.com"]
 	helper = 
-	helper = !/run/current-system/sw/bin/gh auth git-credential
+	helper = !/etc/profiles/per-user/antonio/bin/gh auth git-credential
 [init]
 	defaultBranch = main
