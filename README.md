@@ -1,4 +1,4 @@
-# DOTFILES FOR [FEDORA v40](https://fedoraproject.org/es/)
+# DOTFILES FOR [FEDORA v40](https://fedoraproject.org/es/) AND [NixOS v25.11](https://nixos.org/blog/announcements/2025/nixos-2511/)
 
 ![Terminal Theme](./photos/terminal.png)
 ![Nvim Theme](./photos/nvim.png)
@@ -12,7 +12,12 @@ If you want to use this dotfiles, you can do the following:
 2. Create a symlink for every file with the following command:
     stow <file_name> (for example "stow nvim")
 3. Check for the symlink in the home folder or in the .config folder
-
+4. If you are using nixos run the following command inside the nixos folder:
+```
+sudo nixos-rebuild switch --flake .#hostname
+```
+[!> [!IMPORTANT]
+> You have to change the host name inside flake.nix for it to work]
 
 
 # CONFIG
@@ -42,8 +47,8 @@ If you want to use this dotfiles, you can do the following:
 - [Kitty](https://sw.kovidgoyal.net/kitty/):
      Changes the size of the kitty window, makes it borderless, add's transparent background, changes tabbar to powerline style and change's the font to [Hack](https://github.com/source-foundry/Hack).
      Mappings for Kitty:
-        - Crtl + c (copy text)
-        - Ctrl + v (paste text)
+        - Crtl + Shift + c (copy text)
+        - Ctrl + Shift + v (paste text)
         - Ctrl + left (change to the left window)
         - Ctrl + right (change to the right window)
         - Ctrl + up (change to the upward window)
