@@ -2,15 +2,14 @@
 
 {
   systemd.user.services.wallpaper = {
-    Unit = {
-      Description = "Set wallpaper for niri";
+    Unit = { 
+      Description = "Start wallpaper daemon";
       After = [ "graphical-session.target" ];
     };
 
     Service = {
-      Type = "simple";
       ExecStart = ''
-        ${pkgs.swww}/bin/swww-daemon &
+        ${pkgs.swww}/bin/swww-daemon
       '';
       Restart = "on-failure";
     };
