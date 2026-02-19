@@ -16,7 +16,7 @@ If you want to use this dotfiles, you can do the following:
 ```
 sudo nixos-rebuild switch --flake .#hostname
 ```
-[!> [!IMPORTANT]
+> [!IMPORTANT]
 > You have to change the host name inside flake.nix for it to work]
 
 
