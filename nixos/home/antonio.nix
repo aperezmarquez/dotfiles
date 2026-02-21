@@ -14,14 +14,10 @@
 
   # All the Pkgs for antonio
   home.packages = with pkgs; [
+    # System
     tree
     cacert
     vulkan-loader
-    neovim
-    gh
-    kitty
-    waybar
-    eww
     glibc
     wayland
     wayland-protocols
@@ -40,25 +36,38 @@
     seatd
     pcre2
     xwayland-satellite
-    swww
-    jq
-    btop
-    stow
+
+    # Langs
+    nodejs_24
+    jdk21
+
+    # Utilities
+    gh
+    kitty
+    waybar
+    eww
+    ffmpeg_7
     mono
+    stow
+    btop
+    hyprlock
+    bat
+    jq
     _7zz
+
+    # Apps
+    neovim
+    swww
     brave
     libreoffice
     kdePackages.okular
     docker
-    hyprlock
     pkgs.thunar
-    ffmpeg_7
-    nodejs_24
     prismlauncher
     discord
     melonds
-    jdk21
-    bat
+    unityhub
+    spotify
   ];    
 }
 
