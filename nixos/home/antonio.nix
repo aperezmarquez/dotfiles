@@ -36,6 +36,7 @@
     seatd
     pcre2
     xwayland-satellite
+    imagemagick
 
     # Langs
     nodejs_24
@@ -68,6 +69,7 @@
     melonds
     unityhub
     spotify
+    obs-studio
   ];    
 }
 
