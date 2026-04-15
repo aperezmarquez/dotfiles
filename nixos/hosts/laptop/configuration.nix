@@ -1,7 +1,9 @@
 { config, lib, pkgs, ... }:
 
 {
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config = {
+    allowUnfree = true;
+  };
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   imports = [ 
@@ -42,6 +44,10 @@
   # Configure keymap in X11
   services.xserver.xkb.layout = "es";
 
+  # Flatpak for stremio
+  services.flatpak.enable = true;
+  services.tailscale.enable = true;
+
   # Docker conf
   virtualisation.docker.enable = true;
 
@@ -67,6 +73,16 @@
     gcc
     gnumake
   ];
+
+
+    
+  programs.steam = {
+    enable = true;
+    gamescopeSession.enable = true; 
+    remotePlay.openFirewall = true;
+    dedicatedServer.openFirewall = true;
+    localNetworkGameTransfers.openFirewall = true;
+  }; 
   
   # Enable pendrives
   services.udisks2.enable = true;

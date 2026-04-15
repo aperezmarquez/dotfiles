@@ -3,6 +3,7 @@
 
     inputs = {
         nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+        nvf.url = "github:notashelf/nvf";
 
         home-manager = {
             url = "github:nix-community/home-manager";
@@ -10,17 +11,25 @@
         };
     };
 
-    outputs = { self, nixpkgs, home-manager, ... }:
+    outputs = { self, nixpkgs, home-manager, nvf, ... }:
     let
         system = "x86_64-linux";
         host = "laptop";
         user = "antonio";
     in {
+        packages.system.default = 
+            (nvf.lib.neovimConfiguration {
+                pkgs = nixpkgs.legacyPackages.system;
+                modules = [ ./nvf-configuration.nix ];
+            }).neovim;
+
         nixosConfigurations.nixos-inst = nixpkgs.lib.nixosSystem {
             inherit system;
 
             modules = [
                 ./hosts/${host}/configuration.nix
+                
+                nvf.nixosModules.default
 
                 home-manager.nixosModules.home-manager
 
