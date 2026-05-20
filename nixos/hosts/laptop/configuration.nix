@@ -4,9 +4,6 @@
   nixpkgs.config = {
     allowUnfree = true;
   };
-  nixpkgs.config.permittedInsecurePackages = [
-    "ventoy-1.1.10"
-  ];
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   imports = [ 

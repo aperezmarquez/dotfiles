@@ -57,7 +57,6 @@
     _7zz
 
     # Apps
-    ventoy
     neovim
     swww
     brave
