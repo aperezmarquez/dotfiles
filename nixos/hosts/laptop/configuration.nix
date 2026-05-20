@@ -18,6 +18,10 @@
 
   # Network
   networking.networkmanager.enable = true;
+  networking.extraHosts = ''
+     192.168.122.200 api.multi-llm.local
+     192.168.122.200 odoo.multi-llm.local
+   '';
   
   # Time zone
   time.timeZone = "Europe/Madrid";
@@ -51,10 +55,24 @@
   # Docker conf
   virtualisation.docker.enable = true;
 
+  # Virtualisation
+  virtualisation.libvirtd.enable = true;
+  programs.virt-manager.enable = true;
+  services.spice-vdagentd.enable = true; # Sharing clipboard
+  networking.firewall = {
+    enable = true;
+    # Confía plenamente en la interfaz de los puentes de Virt-Manager
+    trustedInterfaces = [ "virbr0" ];
+  
+    # Opcional: Si vas a usar protocolos específicos de Kubernetes desde el host
+    # puedes abrir los puertos necesarios (6443 es el API Server)
+    allowedTCPPorts = [ 6443 ]; 
+  };
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.antonio = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "docker" ]; 
+    extraGroups = [ "wheel" "docker" "libvirtd" ]; 
     shell = pkgs.zsh;
   };
 
