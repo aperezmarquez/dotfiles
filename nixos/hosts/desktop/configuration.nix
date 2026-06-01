@@ -5,6 +5,19 @@
     allowUnfree = true;
   };
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings = {
+    cores = 8;
+    max-jobs = 1;
+    # Substituters for cache rocm
+    substituters = [
+      "https://cache.nixos.org/"
+      "https://nix-community.cachix.org"
+    ];
+    trusted-public-keys = [
+      "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
+      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="      
+    ];
+  };
 
   imports = [ 
     ./hardware-configuration.nix
@@ -13,6 +26,8 @@
   # Boot
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelParams = [ "iommu=pt" ];
 
   networking.hostName = "magic-33"; # Define your hostname.
 
@@ -29,16 +44,27 @@
   i18n.defaultLocale = "es_ES.UTF-8";
   console.keyMap = "es";
   
-  # NVIDIA
+  # AMD
   services.xserver.enable = true;
-  services.xserver.videoDrivers = ["nvidia"];
-  hardware.nvidia = {
-    modesetting.enable = true;
-    powerManagement.finegrained = false;
-    open = false;
-    nvidiaSettings = true;
-    package = config.boot.kernelPackages.nvidiaPackages.stable;
+  hardware.graphics = {
+    enable = true;
+    enable32Bit = true;
   };
+  services.xserver.videoDrivers = ["amdgpu"];
+
+  # ROCm
+  hardware.graphics.extraPackages = with pkgs; [
+    rocmPackages.clr.icd
+    rocmPackages.clr
+    rocmPackages.hipblas
+    rocmPackages.rocblas
+  ];
+  systemd.tmpfiles.rules = [
+    "L+ /opt/rocm - - - - ${pkgs.rocmPackages.clr}"
+  ];
+
+  # RYZEN
+  hardware.cpu.amd.updateMicrocode = true;
 
   services.displayManager.gdm.enable = true;
   services.displayManager.gdm.wayland = true;
@@ -72,7 +98,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.antonio = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "docker" "libvirtd" ]; 
+    extraGroups = [ "wheel" "docker" "libvirtd" "video" "render" ]; 
     shell = pkgs.zsh;
   };
 
@@ -90,7 +116,16 @@
     git
     gcc
     gnumake
+    rocmPackages.rocm-smi
+    rocmPackages.rocminfo
   ];
+
+  environment.variables = {
+    ROC_ENABLE_PRE_RELEASE = "1";
+    HSA_OVERRIDE_GFX_VERSION = "12.0.0";
+
+    HIP_VISIBLE_DEVICES = "0";
+  };
 
 
     

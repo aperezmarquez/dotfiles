@@ -57,6 +57,10 @@
     _7zz
 
     # Apps
+    nvtopPackages.full
+    (llama-cpp.override { rocmSupport = true; })
+    (llm.withPlugins { llm-openai-plugin = true; })
+    vllm
     neovim
     swww
     brave
