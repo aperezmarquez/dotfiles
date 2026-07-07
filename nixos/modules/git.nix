@@ -4,8 +4,8 @@
   programs.git.enable = true;
 
   programs.git.settings = {
-    user.name = "Your Name";
-    user.email = "you@example.com";
+    user.name = "aperezmarquez";
+    user.email = "aperezmarquez.business@gmail.com";
     init.defaultBranch = "main";
     pull.rebase = true;
     core.editor = "nvim";
