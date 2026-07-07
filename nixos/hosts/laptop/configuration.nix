@@ -14,14 +14,10 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "nixos-inst"; # Define your hostname.
+  networking.hostName = "nixos"; # Define your hostname.
 
   # Network
   networking.networkmanager.enable = true;
-  networking.extraHosts = ''
-     192.168.122.200 api.multi-llm.local
-     192.168.122.200 odoo.multi-llm.local
-   '';
   
   # Time zone
   time.timeZone = "Europe/Madrid";
@@ -49,7 +45,6 @@
   services.xserver.xkb.layout = "es";
 
   # Flatpak for stremio
-  services.flatpak.enable = true;
   services.tailscale.enable = true;
 
   # Docker conf

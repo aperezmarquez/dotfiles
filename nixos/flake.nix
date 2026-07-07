@@ -14,7 +14,7 @@
     outputs = { self, nixpkgs, home-manager, nvf, ... }:
     let
         system = "x86_64-linux";
-        host = "desktop";
+        host = "laptop";
         user = "antonio";
     in {
         packages.system.default = 
@@ -23,7 +23,7 @@
                 modules = [ ./nvf-configuration.nix ];
             }).neovim;
 
-        nixosConfigurations.magic-33 = nixpkgs.lib.nixosSystem {
+        nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
             inherit system;
 
             modules = [

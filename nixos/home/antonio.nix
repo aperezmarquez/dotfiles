@@ -18,15 +18,7 @@
     tree
     cacert
     vulkan-loader
-    glibc
-    wayland
-    wayland-protocols
-    libinput
-    libdrm
-    libxkbcommon
     libxcursor
-    libvirt
-    libgcc
     pixman
     meson
     ninja
@@ -58,9 +50,9 @@
 
     # Apps
     nvtopPackages.full
-    (llama-cpp.override { rocmSupport = true; })
-    (llm.withPlugins { llm-openai-plugin = true; })
-    vllm
+    #(llama-cpp.override { rocmSupport = true; })
+    #(llm.withPlugins { llm-openai-plugin = true; })
+    #vllm
     neovim
     swww
     brave
