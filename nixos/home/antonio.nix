@@ -35,7 +35,6 @@
     jdk21
 
     # Utilities
-    gh
     kitty
     waybar
     eww
