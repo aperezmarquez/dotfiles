@@ -19,6 +19,9 @@
     cacert
     vulkan-loader
     libxcursor
+    libXtst
+    libX11
+    libXext
     pixman
     meson
     ninja
