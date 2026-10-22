@@ -32,12 +32,16 @@
   networking.hostName = "magic-33"; # Define your hostname.
 
   # Network
-  networking.networkmanager.enable = true;
-  networking.extraHosts = ''
-     192.168.122.200 api.multi-llm.local
-     192.168.122.200 odoo.multi-llm.local
-   '';
-  
+  services.resolved.enable = true;
+  networking = {
+    nameservers = [ "1.1.1.1" "1.0.0.1" "2606:4700:4700:1111" ];
+
+    networkmanager = {
+      enable = true;
+      dns = "systemd-resolved";
+    };
+  };
+
   # Time zone
   time.timeZone = "Europe/Madrid";
 
@@ -76,7 +80,15 @@
 
   # Flatpak for stremio
   services.flatpak.enable = true;
+
+  # Tailscale config
   services.tailscale.enable = true;
+  services.tailscale.extraSetFlags = [ "--accept-dns=false" ];
+  systemd.services.tailscaled.serviceConfig.Environment = [ "TS_NO_DBUS_SHELL=1" ];
+
+  # Do not block network-online with tailscale
+  systemd.services.tailscaled.after = [ "network-online.target" ];
+  systemd.services.tailscaled.wants = [ "network-online.target" ];
 
   # Docker conf
   virtualisation.docker.enable = true;
@@ -118,6 +130,7 @@
     gnumake
     rocmPackages.rocm-smi
     rocmPackages.rocminfo
+    rocmPackages.rocm-core
   ];
 
   environment.variables = {
