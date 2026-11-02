@@ -149,6 +149,8 @@
     dedicatedServer.openFirewall = true;
     localNetworkGameTransfers.openFirewall = true;
   }; 
+
+  programs.gamemode.enable = true;
   
   # Enable pendrives
   services.udisks2.enable = true;

@@ -56,6 +56,7 @@
     #(llm.withPlugins { llm-openai-plugin = true; })
     #vllm
     neovim
+    protonup-ng
     swww
     brave
     libreoffice
@@ -69,5 +70,9 @@
     spotify
     obs-studio
   ];    
+
+  home.sessionVariables = {
+    STEAM_EXTRA_COMPAT_TOOLS_PATHS = "\${HOME}/.steam/root/compatibilitytools.d";
+  };
 }
 

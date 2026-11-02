@@ -14,7 +14,7 @@
     outputs = { self, nixpkgs, home-manager, nvf, ... }:
     let
         system = "x86_64-linux";
-        host = "laptop";
+        host = "desktop";
         user = "antonio";
     in {
         packages.system.default = 
@@ -23,7 +23,7 @@
                 modules = [ ./nvf-configuration.nix ];
             }).neovim;
 
-        nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
+        nixosConfigurations.magic-33 = nixpkgs.lib.nixosSystem {
             inherit system;
 
             modules = [
@@ -35,6 +35,7 @@
 
                 {
                     home-manager.useGlobalPkgs = true;
+                    home-manager.backupFileExtension = "backup";
                     home-manager.useUserPackages = true;
 
                     home-manager.users.${user} = import ./home/${user}.nix;
