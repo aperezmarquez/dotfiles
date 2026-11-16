@@ -71,7 +71,6 @@
   hardware.cpu.amd.updateMicrocode = true;
 
   services.displayManager.gdm.enable = true;
-  services.displayManager.gdm.wayland = true;
 
   programs.niri.enable = true;
 
