@@ -21,6 +21,7 @@
     libxcursor
     libXtst
     libX11
+    libXt
     libXext
     pixman
     meson
@@ -51,6 +52,8 @@
     _7zz
 
     # Apps
+    google-chrome
+    obsidian
     nvtopPackages.full
     #(llama-cpp.override { rocmSupport = true; })
     #(llm.withPlugins { llm-openai-plugin = true; })

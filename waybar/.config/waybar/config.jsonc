@@ -16,7 +16,6 @@
         "clock"
     ],
     "modules-right": [
-        "mpd",
         "pulseaudio",
         "power-profiles-daemon",
         "temperature",

@@ -37,7 +37,6 @@
   };
 
   services.displayManager.gdm.enable = true;
-  services.displayManager.gdm.wayland = true;
 
   programs.niri.enable = true;
 
@@ -45,7 +44,11 @@
   services.xserver.xkb.layout = "es";
 
   # Flatpak for stremio
-  services.tailscale.enable = true;
+  services.tailscale = {
+    enable = true;
+    package = pkgs.tailscale;
+  };
+
 
   # Docker conf
   virtualisation.docker.enable = true;
